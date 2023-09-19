@@ -7,21 +7,25 @@ A Deep Dive into Automated Testing Strategies
 ---
 # About Me
 - Programming since the 8bit days
+- Co-founder of Open Knesset and The Public Knowledge Workshop
 - Consulting and developing test automation infrastructure
-- Leading Terminal7
+- Leading Terminal7 - probably the best terminal in the world
+- @daonb on X & github
 ---
-# Test Driven Development Benefits
+# Why start with tests?
 
-1. **Early Bug Detection**: Find and fix issues early.
-2. **Improved Code Quality**: Simpler, clearer, and modular code.
-3. **Refactoring Confidence**: Safely modify and improve code.
-4. **Enhanced Collaboration**: Clearer requirements and shared understanding.
-5. **Better Design**: Intuitive, user-centric software.
-6. **Built-in Documentation**: Tests highlight intended functionality.
-7. **Continuous Feedback**: Immediate insights during development.
-8. **Cost Efficiency**: Cheaper to fix bugs during development.
-9. **Faster Debugging**: Pinpoint issues quickly.
-10. **Peace of Mind**: Reliable, well-tested software.
+
+```
+
+
+
+
+Will it                                           Will it 
+always work?                                      pass review?
+
+-------------------------------------------------------------->
+                            time 
+```
 ---
 # One Goal Many Names
 
@@ -54,7 +58,7 @@ A Deep Dive into Automated Testing Strategies
 - Few util functions
 - No Constants 
 ---
-# Tests can get ugly
+# Doing it wrong
 ```python
 # Test for add(x, y) and multiply(x, y) by ChatGPT4
 class BadTestSuite(unittest.TestCase):
@@ -77,19 +81,30 @@ class BadTestSuite(unittest.TestCase):
 ```
 ---
 # Behind Unit Testing
-Things get complicated:
+The enviornment gets complicated:
 
 - A Virtual Lab
 - Servers Doubles (aka Mocks)
 - Remote Automation
 - Complex State
 
-With so many moving parts, stability is always challenge
+With so many moving parts, stability is a constant challenge
+---
+# Breaking it to Three Layers
+
+- Testing Suite
+- Local Infrastructure
+- Global Infrastructure
 ---
 # Terminal7's Virtual Lab
-
 ```bash
 imgcat vlab.png
+```
+---
+# All in one simple workflow
+
+```bash
+bat ./workflows/test.yml
 ```
 ---
 # Directory Layout
@@ -112,13 +127,23 @@ Playwright is the clear winner of the browser automation rapid evolution
 (sorry Cypress).
 
 ---
-# Duping Servers
+# HTTP Servers Doubles
 Tools like wire-mock and mock-server feature:
 - Proxy and record responses
 - File based configuration 
-- Validate Proper Requests were made
+- RESTfull API to assrt proper requests were made
 ```bash
 cd aatp
 bat peerbook_webrtc/revenuecat_double.json
 ```
+---
+# Summary
+
+- More tests, less bugs
+- Invest in tools and infrastructure
+- The open source stack is here, use it
+
+## Thanks to Ronen Levinson for his help
+
+### Q&A
 
